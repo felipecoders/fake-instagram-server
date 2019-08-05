@@ -1,6 +1,8 @@
 # Fake Instagram Backend
 
-this server dosen't have users validation, only operation structure with `socket.io` to real-time updating
+this server dosen't have users validation, only operation structure with `socket.io` to real-time updating.
+
+> Thanks to [Rocketseat](https://rocketseat.com.br/) and your OmniStack Week
 
 ## Routes
 
