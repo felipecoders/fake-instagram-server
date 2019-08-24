@@ -1,8 +1,10 @@
-const express = require('express');
-const multer = require('multer');
-const uploadConfig = require('./config/upload');
-const PostController = require('./controllers/PostController');
-const LikeController = require('./controllers/LikeController');
+const express = require("express");
+const multer = require("multer");
+const uploadConfig = require("./config/upload");
+const SessionController = require("./controllers/SessionController");
+const UserController = require("./controllers/UserController");
+const PostController = require("./controllers/PostController");
+const LikeController = require("./controllers/LikeController");
 
 const routes = new express.Router();
 // configurações do multer
@@ -11,8 +13,10 @@ const routes = new express.Router();
 const upload = multer(uploadConfig);
 
 // rotas
-routes.get('/posts', PostController.index);
-routes.post('/posts', upload.single('image'), PostController.store);
-routes.post('/posts/:id/like', LikeController.store);
+routes.post("/signin", SessionController.store);
+routes.post("/signup", UserController.store);
+routes.get("/posts", PostController.index);
+routes.post("/posts", upload.single("image"), PostController.store);
+routes.post("/posts/:id/like", LikeController.store);
 
 module.exports = routes;
